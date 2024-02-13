@@ -1,0 +1,23 @@
+body {
+    background-color: lightblue;
+    color: black;
+  }
+  
+  h1 {
+    background-color: yellow;
+    color: green;
+  }
+  
+  p {
+    background-color: orange;
+  }
+
+  #especial {
+    background-color: green;
+    color: white;
+  }
+
+  .migrupo {
+    background-color: blue;
+    color: white;
+  }
