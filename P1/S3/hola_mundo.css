@@ -1,0 +1,14 @@
+/*Practicando CSS */
+
+body {
+    background-color: lightblue;
+    color: blue;
+}
+
+p {
+    margin: 20px;
+}
+
+h1 {
+    color: aliceblue;
+}
