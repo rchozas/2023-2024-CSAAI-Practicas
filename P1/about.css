@@ -15,17 +15,30 @@ h1 {
   color: white
 }
 img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
     
 }
+p {
+  text-align:justify ;
+  color: yellowgreen;
 
+}
 .iresponsive {
     padding: 0 6px;
     float:left;
     width: 50%;
   }
-
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: yellowgreen; /* Color de fondo del botón */
+    color:whitesmoke; /* Color del texto */
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
 
@@ -38,5 +51,3 @@ img {
         width: 100%;
     }
 }
-
-/* Más sobre diseño web responsive https://www.w3schools.com/css/css_rwd_intro.asp */
