@@ -3,7 +3,8 @@
   }
 body {
     background-color: black;
-    color: aqua;
+    color:rgb(197, 197, 152);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
 }
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
@@ -13,6 +14,9 @@ h1 {
   font-family: 'Apple Chancery', cursive;
   font-weight: bold;
   color: white
+}
+h3 {
+
 }
 img {
   width: 100%;
