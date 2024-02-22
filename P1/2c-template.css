@@ -63,7 +63,14 @@ h1 {
   color: black;
 }
 h2 {
-  text-align: left;
+  text-align: center;
+  background: linear-gradient(white,aqua);
+  /*margin: 5px; */
+  width: 30%;
+  padding: 5px;
+  border: solid;
+  border-color:rgb(117, 235, 195);
+  border-radius: 25px;
   
 }
 p {
