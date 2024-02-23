@@ -84,12 +84,12 @@ p {
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
 /* posicionamiento de imágenes https://www.w3schools.com/css/css_positioning.asp */
 
-img {
-    width: 100%;
-    height: auto;
+/*img {
+    /*width: 100%;
+    height: auto;*/
     
     
-}
+
 
 .iresponsive {
     padding: 0 6px;
