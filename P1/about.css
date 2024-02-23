@@ -3,8 +3,9 @@
   }
 body {
     background-color: black;
-    color:rgb(197, 197, 152);
+    color:rgb(214, 214, 78);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 15px;
     
 }
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
@@ -15,7 +16,18 @@ h1 {
   font-weight: bold;
   color: white;
 }
-
+h3 {
+  text-align: center;
+  border: solid;
+  border-color: rgb(108, 219, 4);
+  border-radius: 30px;
+  background: linear-gradient(rgb(6, 241, 6),whitesmoke);
+  color: rgb(100, 97, 97);
+  font-weight: bolder;
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
 img {
   width: 100%;
   height: auto;
@@ -23,7 +35,9 @@ img {
 }
 p {
   text-align:justify ;
+  font-weight: bolder;
   color: yellowgreen;
+  padding: 5px;
 
 }
 .iresponsive {
@@ -34,11 +48,12 @@ p {
 .boton {
     display: inline-block;
     padding: 10px 20px;
-    background-color: yellowgreen; /* Color de fondo del botón */
-    color:whitesmoke; /* Color del texto */
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
+    background: linear-gradient( rgb(30, 155, 5),yellowgreen); /* Color de fondo del botón */
+    color:black; /* Color del texto */
+    font-weight: bold;
+    border: solid;
+    border-radius: 15px;
+    border-color: rgb(51, 160, 0);
     cursor: pointer;
 }
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
