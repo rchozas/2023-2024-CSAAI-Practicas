@@ -2,10 +2,10 @@
     box-sizing: border-box;
   }
 body {
-    background-color: black;
-    color:rgb(214, 214, 78);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    padding: 15px;
+  background: linear-gradient(black,whitesmoke);
+  color:white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 15px;
     
 }
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
@@ -19,9 +19,9 @@ h1 {
 h3 {
   text-align: center;
   border: solid;
-  border-color: rgb(108, 219, 4);
-  border-radius: 30px;
-  background: linear-gradient(rgb(6, 241, 6),whitesmoke);
+  border-color: white;
+  border-radius: 20px;
+  background: linear-gradient(rgb(250, 253, 59),whitesmoke);
   color: rgb(100, 97, 97);
   font-weight: bolder;
   float: left;
@@ -36,7 +36,7 @@ img {
 p {
   text-align:justify ;
   font-weight: bolder;
-  color: yellowgreen;
+  /*color: yellowgreen;*/
   padding: 5px;
 
 }
@@ -48,12 +48,12 @@ p {
 .boton {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient( rgb(30, 155, 5),yellowgreen); /* Color de fondo del botón */
+    background: linear-gradient( rgb(248, 26, 26),rgb(244, 245, 243)); /* Color de fondo del botón */
     color:black; /* Color del texto */
     font-weight: bold;
     border: solid;
     border-radius: 15px;
-    border-color: rgb(51, 160, 0);
+    border-color: rgb(3, 3, 3);
     cursor: pointer;
 }
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
