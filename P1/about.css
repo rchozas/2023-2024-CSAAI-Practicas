@@ -59,6 +59,10 @@ p {
   text-align: justify;
   font-weight: bold;
 }
+.foto{
+  float: right;
+  width: 200px;
+}
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
 
