@@ -36,7 +36,6 @@ img {
 p {
   text-align:justify ;
   font-weight: bolder;
-  /*color: yellowgreen;*/
   padding: 5px;
 
 }
@@ -55,6 +54,10 @@ p {
     border-radius: 15px;
     border-color: rgb(3, 3, 3);
     cursor: pointer;
+}
+.curiosidades{
+  text-align: justify;
+  font-weight: bold;
 }
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
