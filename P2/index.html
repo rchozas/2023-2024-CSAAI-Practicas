@@ -6,11 +6,20 @@
     <title>BOOM</title>
     <!-- Hoja de estilo -->
     <link rel="stylesheet" href="boom.css">
+    <script src="crono.js" defer></script>
     <script src="boom.js" defer></script>
 </head>
 <body>
     <h1>BOOM</h1>
-    
+    <div class = "clave">
+        <p id = "c1ave1" class = "digito">*</p>
+        <p id = "clave2" class = "digito">*</p>
+        <p id = "clave3" class = "digito">*</p>
+        <p id = "clave4" class = "digito">*</p>
+    </div>
+    <div class="display">
+        <p id="display">0:0:0</p>
+    </div>
     <div class="numeros">
         <div class="fila">
             <button type="button" value="7" class="digito">7</button>
@@ -27,6 +36,10 @@
             <button type="button" value="2" class="digito">2</button>
             <button type="button" value="3" class="digito">3</button>
         </div> 
+        
+        <div class="fila">
+            <button type="button" value="0" class="digito">0</button>
+        </div>
         <div class="fila">
             <button type = "button" id = "start">Start</button>
             <button type = "button" id = "stop">Stop</button>

@@ -1,13 +1,23 @@
 body {
     background-color: black;
+    color: azure;
+    text-align: center;
+    font-weight: bold;
     
     
 }
 h1{
     font-family: 'Apple Chancery', cursive;
     font-weight: bold;
-    color: azure;
+    color: rgb(224, 186, 18);
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(157, 243, 44, 0.8); /* Sombras */
+}
+.clave p{
+    /* Para que los elementos estén en una línea horizontal */
+    display: inline-block; /* o display: inline; */
+    font-size: 30px;
+    color: rgb(165, 4, 144);
 }
 .numeros {
     
@@ -30,6 +40,17 @@ h1{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
+
+#display {
+    font-size: 30px;   
+    /*border-radius: 15px;
+    margin-right: 5px;*/
+    color: rgb(238, 78, 20);
+    /*background: linear-gradient(rgb(6, 255, 6),rgba(249, 250, 249, 0.8));*/
+    
+   
+}
+
 #start{
     background-color: rgb(6, 255, 6);
     width: 50px;
