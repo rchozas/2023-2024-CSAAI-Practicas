@@ -7,6 +7,43 @@ const gui = {
     numeros: document.querySelector(".numeros")
 }
 
+
+
+console.log("Ejecuitando JS...");
+
+//-- Función para generar números aleatorios
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+const keynums = document.getElementsByClassName("key");
+const secretkey = [];
+var vkey = 0; 
+
+function new_keys() {
+
+    for (let key of keynums) {
+        let keyv = getRandomInt(9);
+        key.value = "*";
+        key.style.color = "red";
+        secretkey.push(keyv.toString()); 
+    }
+
+}
+
+function checkKey(btnum) {
+    i=0;
+    for (let key of keynums) {
+        
+        if (secretkey[i] == btnum && key.value == "*") {
+            key.value = secretkey[i];
+            key.style.color = "#1af01a";
+            break;
+        }    
+
+        i+=1;
+    }
+
 console.log("Ejecutando JS...");
 
 //-- Definir un objeto cronómetro
