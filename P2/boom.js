@@ -43,7 +43,7 @@ function checkKey(btnum) {
 
         i+=1;
     }
-
+}
 console.log("Ejecutando JS...");
 
 //-- Definir un objeto cronómetro
@@ -74,4 +74,4 @@ gui.numeros.querySelectorAll(".digito").forEach(button => {
         console.log("Start!!");
         crono.start();
     }
-})S
+})
