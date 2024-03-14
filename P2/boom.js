@@ -74,4 +74,4 @@ gui.numeros.querySelectorAll(".digito").forEach(button => {
         console.log("Start!!");
         crono.start();
     }
-});
+})S
