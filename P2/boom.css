@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+  }
 body {
     background-color: black;
     color: azure;
@@ -79,3 +82,12 @@ h1{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
+/*@media screen and (max-width: 600px) {
+    .columna {
+      width: 100%;
+    }
+
+    .iresponsive {
+        width: 100%;
+    }
+}*/

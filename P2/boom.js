@@ -4,47 +4,35 @@ const gui = {
     start : document.getElementById("start"),
     stop : document.getElementById("stop"),
     reset : document.getElementById("reset"),
-    numeros: document.querySelector(".numeros")
+    numeros: document.querySelector(".numeros"),
+    clave1 : document.getElementById("clave1"),
+    clave2 : document.getElementById("clave2"),
+    clave3 : document.getElementById("clave3"),
+    clave4 : document.getElementById("clave4"),
 }
-
-
 
 console.log("Ejecuitando JS...");
 
-//-- Función para generar números aleatorios
+//-- Array que almacena números secretos
+const secretkey = [];
+
+//-- Generar números aleatorios con un valor máximo
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-const keynums = document.getElementsByClassName("key");
-const secretkey = [];
-var vkey = 0; 
-
-function new_keys() {
-
-    for (let key of keynums) {
-        let keyv = getRandomInt(9);
-        key.value = "*";
-        key.style.color = "red";
-        secretkey.push(keyv.toString()); 
-    }
-
+//-- Generamos números secretos y los almacenamos en un array
+for (let i = 0; i < 10; i++) {
+    let rnum = getRandomInt(9);
+    secretkey.push(rnum.toString());
 }
 
-function checkKey(btnum) {
-    i=0;
-    for (let key of keynums) {
-        
-        if (secretkey[i] == btnum && key.value == "*") {
-            key.value = secretkey[i];
-            key.style.color = "#1af01a";
-            break;
-        }    
-
-        i+=1;
-    }
+//-- Mostramos el contenido del array de números secretos en la consola
+for (let j = 0; j < secretkey.length; j++) {
+    console.log( j + ' Secret Key ' + secretkey[j]);
 }
-console.log("Ejecutando JS...");
+
+
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
