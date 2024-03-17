@@ -3,18 +3,25 @@
   }
 body {
     background-color: black;
-    color: azure;
+    background-image: url(2.jpg);
+    background-size: 100%;
+    /*color: azure;*/
     text-align: center;
     font-weight: bold;
     
     
 }
 h1{
+    display: inline-block;
     font-family: 'Apple Chancery', cursive;
     font-weight: bold;
-    color: rgb(224, 186, 18);
+    font-size: 60px;
+    color: rgb(240, 236, 219);
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(157, 243, 44, 0.8); /* Sombras */
+    text-shadow: 5px 5px 8px rgba(157, 243, 44, 0.8); /* Sombras */
+    /*background-color: rgba(18, 19, 19, 0.8);*/
+    border-radius: 10px;
+    /*padding: 5px;*/
 }
 .clave p{
     /* Para que los elementos estén en una línea horizontal */
@@ -24,10 +31,12 @@ h1{
 }
 .numeros {
     
+    display: inline-block;
     text-align: center;
-    border: solid;
-    border: 5px;
-    border-color: greenyellow;
+    border: 5px solid;
+    background-color: rgba(18, 19, 19, 0.8);
+    border-color: rgb(9, 243, 224);
+    border-radius: 10px;
     padding: 10px;
     
 }
@@ -46,11 +55,17 @@ h1{
 }
 
 #display {
+    display: inline-block;
+    text-align: center;
+    border: 2px solid;
+    border-color:rgb(202, 21, 21);
     font-size: 30px;   
-    /*border-radius: 15px;
-    margin-right: 5px;*/
-    color: rgb(238, 78, 20);
-    /*background: linear-gradient(rgb(6, 255, 6),rgba(249, 250, 249, 0.8));*/
+    border-radius: 10px;
+    margin-right: 5px;
+    color: red;
+    background-color: rgba(18, 19, 19, 0.8);
+    padding: 5px;
+    /*background: linear-gradient(rgb(78, 224, 230),rgba(249, 250, 249, 0.8));*/
     
    
 }
