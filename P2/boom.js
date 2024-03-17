@@ -56,6 +56,7 @@ gui.reset.onclick = () => {
     console.log("Reset!");
     crono.reset();
 }
+
 //-- Iniciar el cronómetro al pulsar cualquier botón dentro de .numeros
 gui.numeros.querySelectorAll(".digito").forEach(button => {
     button.onclick = () => {
