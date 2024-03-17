@@ -28,7 +28,7 @@ clear: both;
 }
 
 #c1 {
-    background-color:#aaa;
+    background-color:#aaaaaa;
 }
 
 #c2 {
@@ -47,8 +47,13 @@ img {
     padding: 0 6px;
     float: left;
     width: 50%;
-  }
-
+}
+h1{
+  font-family: 'Courier New', Courier, monospace;
+}
+h2{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
 
