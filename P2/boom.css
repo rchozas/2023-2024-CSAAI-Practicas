@@ -22,8 +22,9 @@ h1{
     /*background-color: rgba(18, 19, 19, 0.8);*/
     border-radius: 10px;
     /*padding: 5px;*/
+    color: yellowgreen;
 }
-.clave p{
+.key p{
     /* Para que los elementos estén en una línea horizontal */
     display: inline-block; /* o display: inline; */
     font-size: 30px;

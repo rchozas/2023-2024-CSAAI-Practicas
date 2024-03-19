@@ -22,7 +22,7 @@ function getRandomInt(max) {
 }
 
 function nueva_clave(){
-    for(let = 1; i<=4; i++) {
+    for (let i = 1; i <= 4; i++) {
         let keynum = getRandomInt(10); //-- de 0 a 9
         let clave = gui['clave' + i];
         clave.textContent = "*";
@@ -30,7 +30,28 @@ function nueva_clave(){
         secretkey.push(keynum.toString());
     }
 }
-//-- Generamos números secretos y los almacenamos en un array
+
+function checkKey(btnum) {
+    let found = false;
+    for (let i = 0; i < secretkey.length; i++) {
+        if (secretkey[i] == btnum && gui['clave' + (i + 1)].textContent == "*") {
+            gui['clave' + (i + 1)].textContent = secretkey[i];
+            gui['clave' + (i + 1)].style.color = "#1af01a";
+            found = true;
+            break;
+        }
+    }
+    // Mostrar la clave actualizada
+    let currentKey = secretkey.map((val, index) => gui['clave' + (index + 1)].textContent).join("");
+    console.log("Clave actual:", currentKey);
+
+    // Verificar si se ha descubierto la clave completa
+    if (currentKey.indexOf("*") === -1) {
+        console.log("¡Clave ok! Deteniendo cronómetro...");
+        crono.stop(); // Detener el cronómetro
+    }
+}
+/*//-- Generamos números secretos y los almacenamos en un array
 for (let i = 0; i < 10; i++) {
     let rnum = getRandomInt(9);
     secretkey.push(rnum.toString());
@@ -39,9 +60,11 @@ for (let i = 0; i < 10; i++) {
 //-- Mostramos el contenido del array de números secretos en la consola
 for (let j = 0; j < secretkey.length; j++) {
     console.log( j + ' Secret Key ' + secretkey[j]);
-}
+}*/
 
-
+//-- Generar nueva clave y mostrarla
+nueva_clave();
+console.log("Clave generada(forma aleatoria):", secretkey.join(""));
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
