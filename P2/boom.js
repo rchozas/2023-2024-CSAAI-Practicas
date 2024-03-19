@@ -49,7 +49,16 @@ function checkKey(btnum) { //botón núm pulsado
     if (currentKey.indexOf("*") === -1) {
         console.log("¡Clave ok! Deteniendo cronómetro...");
         crono.stop(); // Detener el cronómetro
+        finDeJuego(); // Mostrar mensaje de fin de juego
     }
+}
+
+function finDeJuego() {
+    // Obtener el elemento del mensaje de fin de juego
+    const mensajeFinDeJuego = document.getElementById("fin");
+    // Mostrar el mensaje de fin de juego al terminar juego
+    mensajeFinDeJuego.style.display = "block";
+    
 }
 /*//-- Generamos números secretos y los almacenamos en un array
 for (let i = 0; i < 10; i++) {
