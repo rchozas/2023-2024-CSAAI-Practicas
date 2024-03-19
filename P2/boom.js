@@ -22,21 +22,21 @@ function getRandomInt(max) {
 }
 
 function nueva_clave(){
-    for (let i = 1; i <= 4; i++) {
-        let keynum = getRandomInt(10); //-- de 0 a 9
+    for (let i = 1; i <= 4; i++) {  // generar clave 4 digitos
+        let keynum = getRandomInt(10); //-- num de 0 a 9
         let clave = gui['clave' + i];
         clave.textContent = "*";
         clave.style.color = "red";
         secretkey.push(keynum.toString());
     }
 }
-
-function checkKey(btnum) {
+// func para comparar número pulsado con la clave secreta 
+function checkKey(btnum) { //botón núm pulsado
     let found = false;
     for (let i = 0; i < secretkey.length; i++) {
         if (secretkey[i] == btnum && gui['clave' + (i + 1)].textContent == "*") {
             gui['clave' + (i + 1)].textContent = secretkey[i];
-            gui['clave' + (i + 1)].style.color = "#1af01a";
+            gui['clave' + (i + 1)].style.color = "yellow";
             found = true;
             break;
         }
@@ -92,7 +92,9 @@ gui.reset.onclick = () => {
 //-- Iniciar el cronómetro al pulsar cualquier botón dentro de .numeros
 gui.numeros.querySelectorAll(".digito").forEach(button => {
     button.onclick = () => {
+        let btnum = button.textContent;
         console.log("Start!!");
         crono.start();
+        checkKey(btnum);
     }
 })
