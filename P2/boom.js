@@ -11,7 +11,7 @@ const gui = {
     clave4 : document.getElementById("clave4"),
 }
 
-console.log("Ejecuitando JS...");
+console.log("Ejecutando JS...");
 
 //-- Array que almacena números secretos
 const secretkey = [];
@@ -21,6 +21,15 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+function nueva_clave(){
+    for(let = 1; i<=4; i++) {
+        let keynum = getRandomInt(10); //-- de 0 a 9
+        let clave = gui['clave' + i];
+        clave.textContent = "*";
+        clave.style.color = "red";
+        secretkey.push(keynum.toString());
+    }
+}
 //-- Generamos números secretos y los almacenamos en un array
 for (let i = 0; i < 10; i++) {
     let rnum = getRandomInt(9);
