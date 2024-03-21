@@ -67,13 +67,14 @@ function reiniciarJuego(){
     mensajeFinDeJuego.style.display = "none";
 
     // ocultar clave descubierta. vuelta de * y cambio de color
-    for(let i=1; i<=2; i++){
+    for(let i=1; i <=4; i++){
         let clave = gui['clave' + i];
         clave.textContent = "*";
         clave.style.color = "red";
     }
     
     //Generar nueva clave y mostrarla por consola
+    secretkey.length = 0;
     nueva_clave();
     console.log("Clave generada(forma aleatoria):", secretkey.join(""))
 
@@ -107,6 +108,7 @@ gui.reset.onclick = () => {
     crono.stop();
     crono.reset();
     // necesito restablecer juego ¿Func?
+    reiniciarJuego();
 }
 
 //-- Iniciar el cronómetro al pulsar cualquier botón dentro de .numeros
