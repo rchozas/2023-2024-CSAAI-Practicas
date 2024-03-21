@@ -92,10 +92,13 @@ gui.stop.onclick = () => {
     crono.stop();
 }
 
-//-- Reset del cronómetro
+//-- Reset del cronómetro. (vuelve el juego al estado inicial stop-->0)
 gui.reset.onclick = () => {
     console.log("Reset!");
+    // Detener el cronómetro(stop) y reiniciar (poner a 00.00.00) 
+    crono.stop();
     crono.reset();
+    // necesito restablecer juego ¿Func?
 }
 
 //-- Iniciar el cronómetro al pulsar cualquier botón dentro de .numeros
