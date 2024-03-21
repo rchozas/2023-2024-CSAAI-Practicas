@@ -5,13 +5,10 @@ body {
     background-color: black;
     background-image: url(2.jpg);
     background-size: 100%;
-    /*color: azure;*/
     text-align: center;
     font-weight: bold;
-    
-    
 }
-h1{
+h1 {
     display: inline-block;
     font-family: 'Apple Chancery', cursive;
     font-weight: bold;
@@ -19,23 +16,18 @@ h1{
     color: rgb(240, 236, 219);
     text-align: center;
     text-shadow: 5px 5px 8px rgba(157, 243, 44, 0.8); /* Sombras */
-    /*background-color: rgba(18, 19, 19, 0.8);*/
     border-radius: 10px;
-    /*padding: 5px;*/
-    
 }
 .key p{
     /* Para que los elementos estén en una línea horizontal */
-    display: inline-block; /* o display: inline; */
+    display: inline-block; /* display: inline; */
     font-size: 30px;
     color: rgb(165, 4, 144);
     background-color: rgba(18, 19, 19, 0.8);
     border: 2px solid;
     border-color: aquamarine;
-    
 }
 .numeros {
-    
     display: inline-block;
     text-align: center;
     border: 5px solid;
@@ -43,22 +35,20 @@ h1{
     border-color: rgb(9, 243, 224);
     border-radius: 10px;
     padding: 10px;
-    
 }
 .fila {
     margin-bottom: 5px;
 }
 .digito {
     background-color: rgb(6, 255, 6);
-    font-size: 20px;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-right: 5px;
     border-radius: 15px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    font-size: 30px;
 }
-
 #display {
     display: inline-block;
     text-align: center;
@@ -70,15 +60,11 @@ h1{
     color: red;
     background-color: rgba(18, 19, 19, 0.8);
     padding: 5px;
-    /*background: linear-gradient(rgb(78, 224, 230),rgba(249, 250, 249, 0.8));*/
-    
-   
 }
-
 #start{
     background-color: rgb(6, 255, 6);
-    width: 50px;
-    height: 25px;
+    width: 60px;
+    height: 30px;
     margin-right: 5px;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
@@ -86,8 +72,8 @@ h1{
 }
 #stop{
     background-color: rgb(6, 255, 6);
-    width: 50px;
-    height: 25px;
+    width: 60px;
+    height: 30px;
     margin-right: 5px;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
@@ -95,8 +81,8 @@ h1{
 }
 #reset{
     background-color: rgb(6, 255, 6);
-    width: 50px;
-    height: 25px;
+    width: 60px;
+    height: 30px;
     margin-right: 5px;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
@@ -109,6 +95,7 @@ h1{
     border-color: aquamarine;
     color: bisque;
     font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
     font-weight: bold;
 }
 @media screen and (max-width: 600px) {

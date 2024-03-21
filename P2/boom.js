@@ -22,8 +22,8 @@ function getRandomInt(max) {
 }
 
 function nueva_clave(){
-    for (let i = 1; i <= 4; i++) {  // generar clave 4 digitos
-        let keynum = getRandomInt(10); //-- num de 0 a 9
+    for (let i = 1; i <= 4; i++) {  // generar clave 4 dígitos
+        let keynum = getRandomInt(10); //-- núm de 0 a 9
         let clave = gui['clave' + i];
         clave.textContent = "*";
         clave.style.color = "red";
@@ -76,13 +76,13 @@ function reiniciarJuego(){
     //Generar nueva clave y mostrarla por consola
     secretkey.length = 0;
     nueva_clave();
-    console.log("Clave generada(forma aleatoria):", secretkey.join(""))
+    console.log("Clave generada (forma aleatoria desp de reset):", secretkey.join(""))
 
 }
 
 //-- Generar nueva clave y mostrarla
 nueva_clave();
-console.log("Clave generada(forma aleatoria):", secretkey.join(""));
+console.log("Clave generada (forma aleatoria):", secretkey.join(""));
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
@@ -104,10 +104,10 @@ gui.stop.onclick = () => {
 //-- Reset del cronómetro. (vuelve el juego al estado inicial stop-->0)
 gui.reset.onclick = () => {
     console.log("Reset!");
-    // Detener el cronómetro(stop) y reiniciar (poner a 00.00.00) 
+    // Detener el cronómetro(stop) y reiniciar (poner a 0.0.0) 
     crono.stop();
     crono.reset();
-    // necesito restablecer juego ¿Func?
+    // necesito restablecer juego-->func reiniciarJuego
     reiniciarJuego();
 }
 
