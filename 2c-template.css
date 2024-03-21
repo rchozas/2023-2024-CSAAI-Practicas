@@ -5,8 +5,9 @@
     box-sizing: border-box;
   }
 body{
-  /*background: linear-gradient(to right, #0f0f0f,#c4cfcc);*/
+  
   background-color: black;
+  
 }  
 /* Crear columnas de ancho diferente que se colocan una a continuación de la otra */
 .columna {
