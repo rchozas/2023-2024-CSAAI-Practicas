@@ -60,16 +60,16 @@ function finDeJuego() {
     mensajeFinDeJuego.style.display = "block";
     
 }
-/*//-- Generamos números secretos y los almacenamos en un array
-for (let i = 0; i < 10; i++) {
-    let rnum = getRandomInt(9);
-    secretkey.push(rnum.toString());
-}
+//-- Función para reiniciar el juego desde 0
+function reiniciarJuego(){
+    // necesito ocultar el mensaje de FIN DE JUEGO!
+    const mensajeFinDeJuego = document.getElementById("fin");
+    mensajeFinDeJuego.style.display = "none";
 
-//-- Mostramos el contenido del array de números secretos en la consola
-for (let j = 0; j < secretkey.length; j++) {
-    console.log( j + ' Secret Key ' + secretkey[j]);
-}*/
+    // ocultar clave?
+    // generar nueva clave?
+
+}
 
 //-- Generar nueva clave y mostrarla
 nueva_clave();
