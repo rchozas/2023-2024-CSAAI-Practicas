@@ -4,7 +4,10 @@
 * {
     box-sizing: border-box;
   }
-  
+body{
+  /*background: linear-gradient(to right, #0f0f0f,#c4cfcc);*/
+  background-color: black;
+}  
 /* Crear columnas de ancho diferente que se colocan una a continuación de la otra */
 .columna {
 float: left;
@@ -28,11 +31,11 @@ clear: both;
 }
 
 #c1 {
-    background-color:#aaaaaa;
+    background-color:#76EEF5;
 }
 
 #c2 {
-    background-color:#bbb;
+    background-color:#C7F5E8;
 }
 
 /* estilos para imágenes https://www.w3schools.com/css/css3_images.asp */
@@ -50,9 +53,14 @@ img {
 }
 h1{
   font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+  color: #76F57A;
 }
 h2{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h3{
+  text-align: center;
 }
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositvos móviles */
