@@ -76,7 +76,7 @@ function reiniciarJuego(){
     //Generar nueva clave y mostrarla por consola
     secretkey.length = 0;
     nueva_clave();
-    console.log("Clave generada (forma aleatoria desp de reset):", secretkey.join(""))
+    console.log("Clave generada (forma aleatoria desp de reset):", secretkey.join(""));
 
 }
 
@@ -119,4 +119,4 @@ gui.numeros.querySelectorAll(".digito").forEach(button => {
         crono.start();
         checkKey(btnum);
     }
-})
+});
