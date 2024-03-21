@@ -66,8 +66,16 @@ function reiniciarJuego(){
     const mensajeFinDeJuego = document.getElementById("fin");
     mensajeFinDeJuego.style.display = "none";
 
-    // ocultar clave?
-    // generar nueva clave?
+    // ocultar clave descubierta. vuelta de * y cambio de color
+    for(let i=1; i<=2; i++){
+        let clave = gui['clave' + i];
+        clave.textContent = "*";
+        clave.style.color = "red";
+    }
+    
+    //Generar nueva clave y mostrarla por consola
+    nueva_clave();
+    console.log("Clave generada(forma aleatoria):", secretkey.join(""))
 
 }
 
