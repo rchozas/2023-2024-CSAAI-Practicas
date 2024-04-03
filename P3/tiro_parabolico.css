@@ -3,6 +3,7 @@
   }
 body {
     text-align: center;
+    background-color: rgb(167, 243, 233);
 }
 /* 
 Estilos para el campo de tiro
@@ -17,6 +18,15 @@ Estilos para el campo de tiro
     border-radius: 5px;
   
 }
+h1 {
+    font-family: 'Courier New', Courier, monospace, cursive;
+    font-weight: bold;
+    color: rgb(3, 138, 131);
+    
+    text-shadow: 5px 5px 5px white; /* Sombras */
+    border-radius: 10px;
+}
+
 @media screen and (max-width: 600px) {
     .columna {
       width: 100%;
