@@ -155,6 +155,10 @@ btnLanzar.onclick = () => {
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
     location.reload();
+
+    //-- Dibujar el proyectil
+    dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
+    
     //juego posición de inicio--> timer 0.0.0
     crono.stop();
     crono.reset();
