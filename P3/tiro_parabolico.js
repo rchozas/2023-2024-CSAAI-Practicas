@@ -11,6 +11,8 @@ const range_velocidad = document.getElementById("range_velocidad");
 const range_vel2 = document.getElementById("range_vel2");
 const display_veloc = document.getElementById("display_veloc");
 
+
+
 //-- Acceder al botón de disparo
 const btnLanzar = document.getElementById("btnLanzar");
 //-- Acceder al botón de inicio
@@ -23,7 +25,7 @@ const ctx = canvas.getContext("2d");
 canvas.width = 800;
 canvas.height = 400;
 //-- Declaración de variables y objetos
-//-- Coordenadas iniciales del proyectil
+//-- Coordenadas iniciales del proyectil (sp esquina inf izq)
 let xop = 5;
 let yop = 345;
 let xp = xop;
@@ -32,9 +34,14 @@ let yp = yop;
 //-- Coordenadas iniciales del objetivo
 let xomin = 200;
 let xomax = 770;
-let xo = 500; //getRandomXO(xomin,xomax);
+/*let xo = 500; */
+let xo = getRandomXo(xomin,xomax);
 let yo = 370;
 
+//-- Función para obtener la posición del objetivo de forma aleatoria
+function getRandomXo(min, max) {
+    return Math.random() * (max - min) + min;
+}
 //-- Dibujar el proyectil
 dibujarP(xop, yop, 50, 50, "grey"); // Pintar el proyectil
 
@@ -103,6 +110,7 @@ function dibujarO(x,y) {
 
     ctx.closePath();
 }
+
 
 
 //-- Deslizador ángulo de disparo
