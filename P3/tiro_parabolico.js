@@ -1,15 +1,6 @@
-//-- Declaración de variables y objetos
-//-- Coordenadas iniciales del proyectil
-let xop = 5;
-let yop = 345;
-let xp = xop;
-let yp = yop;
-
-//-- Coordenadas iniciales del objetivo
-let xomin = 200;
-let xomax = 770;
-let xo = 500; //getRandomXO(xomin,xomax);
-let yo = 370;
+//-- Elementos del DOM
+//-- Obtención del canvas y de los elementos HTML a usar
+const canvas = document.getElementById("ctiro");
 
 const display = document.getElementById("display");
 const range = document.getElementById("range");
@@ -25,49 +16,51 @@ const btnLanzar = document.getElementById("btnLanzar");
 //-- Acceder al botón de inicio
 const btnIniciar = document.getElementById("btnIniciar");
 
-
-//-- Obtención del canvas y de los elementos HTML a usar
-const canvas = document.getElementById("ctiro");
+//-- Obtener el contexto del canvas 2d
 const ctx = canvas.getContext("2d");
+
 //-- Definir dimensiones del canvas
 canvas.width = 800;
 canvas.height = 400;
+//-- Declaración de variables y objetos
+//-- Coordenadas iniciales del proyectil
+let xop = 5;
+let yop = 345;
+let xp = xop;
+let yp = yop;
 
-//-- Deslizador ángulo de disparo
-range.oninput = () => {
-    range_disp.innerHTML = range.value;
-}
-range.onchange = () => {
-    display_disp.innerHTML = range.value;
-}
-//-- Deslizador velocidad de disparo
-range_velocidad.oninput = () => {
-    range_vel2.innerHTML = range_velocidad.value;
-}
-range_velocidad.onchange = () => {
-    display_veloc.innerHTML = range_velocidad.value;
-}
-/*
+//-- Coordenadas iniciales del objetivo
+let xomin = 200;
+let xomax = 770;
+let xo = 500; //getRandomXO(xomin,xomax);
+let yo = 370;
+
+//-- Dibujar el proyectil
+dibujarP(xop, yop, 50, 50, "grey"); // Pintar el proyectil
+
+//-- Dibujar el objetivo
+dibujarO(xo,yo); // Pintar el objetivo
+//-- Velocidad del proyectil
+let velp = 2;
+
 //-- Función principal de actualización
-function update() 
+function lanzar() 
 {
   //-- Implementación del algoritmo de animación:
 
   //-- 1) Actualizar posición de los elementos
+  xp = xp + velp;
 
   //-- 2) Borrar el canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   //-- 3) Pintar los elementos en el canvas
+  dibujarO(xo,yo); // Pintar el objetivo
+  dibujarP(xp, yp, 50, 50, "blue"); // Pintar el proyectil
 
   //-- 4) Repetir
-  requestAnimationFrame(update);
+  requestAnimationFrame(lanzar);
 }
-
-//-- Otras funciones....
-
-
-//-- Hay que llamar a update la primera vez
-update();*/
 
 //-- función para pintar el proyectil
 function dibujarP(x,y,lx,ly,color) {
@@ -110,43 +103,35 @@ function dibujarO(x,y) {
 
     ctx.closePath();
 }
-//-- Dibujar el objetivo
-dibujarO(xo,yo); // Pintar el objetivo
 
-//-- Dibujar el proyectil
-dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
 
-//-- Velocidad del proyectil
-let velp = 2;
-
-//-- Función principal de actualización
-function lanzar() 
-{
-  //-- Implementación del algoritmo de animación:
-
-  //-- 1) Actualizar posición de los elementos
-  xp = xp + velp;
-
-  //-- 2) Borrar el canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  //-- 3) Pintar los elementos en el canvas
-  dibujarO(xo,yo); // Pintar el objetivo
-  dibujarP(xp, yp, 50, 50, "blue"); // Pintar el proyectil
-
-  //-- 4) Repetir
-  requestAnimationFrame(lanzar);
+//-- Deslizador ángulo de disparo
+range.oninput = () => {
+    range_disp.innerHTML = range.value;
 }
-lanzar();
+range.onchange = () => {
+    display_disp.innerHTML = range.value;
+}
+//-- Deslizador velocidad de disparo
+range_velocidad.oninput = () => {
+    range_vel2.innerHTML = range_velocidad.value;
+}
+range_velocidad.onchange = () => {
+    display_veloc.innerHTML = range_velocidad.value;
+}
+
+
+
+//-lanzar();
 
 //-- Definir un objeto cronómetro
-const crono = new Crono(gui.display);
+/*const crono = new Crono(gui.display);
 
 //-- Arranque del cronometro
 gui.start.onclick = () => {
     console.log("Start!!");
     crono.start();
-}
+}*/
 //-- Función de retrollamada del botón de disparo
 btnLanzar.onclick = () => {
     lanzar();
@@ -154,8 +139,8 @@ btnLanzar.onclick = () => {
 }
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
+    //-- Reiniciar
     location.reload();
-
     //-- Dibujar el proyectil
     dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
     
