@@ -50,23 +50,56 @@ dibujarO(xo,yo); // Pintar el objetivo
 //-- Velocidad del proyectil
 let velp = 2;
 
-//-- Función principal de actualización
-function lanzar() 
-{
-  //-- Implementación del algoritmo de animación:
+function lanzar() {
+    const angle = parseFloat(range_disp.innerHTML); // Ángulo en grados
+    const velocidad = parseFloat(range_velocidad.value); // Velocidad en unidades por segundo
+    
+    // Componentes de la velocidad inicial
+    const v0x = velocidad * Math.cos(angle * Math.PI / 180); // Componente horizontal de la velocidad inicial
+    const v0y = velocidad * Math.sin(angle * Math.PI / 180); // Componente vertical de la velocidad inicial
 
-  //-- 1) Actualizar posición de los elementos
-  xp = xp + velp;
+    // Tiempo
+    let t = 0;
 
-  //-- 2) Borrar el canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Física
+    const g = 9.8; // Aceleración debido a la gravedad (m/s^2)
 
-  //-- 3) Pintar los elementos en el canvas
-  dibujarO(xo,yo); // Pintar el objetivo
-  dibujarP(xp, yp, 50, 50, "blue"); // Pintar el proyectil
+    // Animación
+    function animar() {
+        // Actualizar posición del proyectil
+        xp += v0x;
+        yp -= (v0y - 0.5 * g * t * t); // Ecuación de movimiento para y en un tiro parabólico
 
-  //-- 4) Repetir
-  requestAnimationFrame(lanzar);
+        // Incrementar tiempo
+        t += 0.1;
+
+        // Borrar el canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Dibujar objetivo
+        dibujarO(xo, yo);
+
+        // Dibujar proyectil
+        dibujarP(xp, yp, 30, 30, "blue");
+
+        // Comprobar si el proyectil ha alcanzado el objetivo
+        const distanciaAlObjetivo = Math.sqrt((xp - xo) ** 2 + (yp - yo) ** 2);
+        if (distanciaAlObjetivo <= 25) { // Radio del objetivo
+            // El proyectil ha alcanzado el objetivo
+            alert("¡Objetivo alcanzado!");
+            return;
+        } else if (xp >= canvas.width) { // Si el proyectil llega al final del canvas
+            // El proyectil no alcanzó el objetivo
+            alert("¡MALA PUNTERIA!Sigue intentándolo");
+            return;
+        } else {
+            // Si no ha alcanzado el objetivo ni llegado al final del canvas, continuar animando
+            requestAnimationFrame(animar);
+        }
+    }
+
+    // Iniciar la animación
+    animar();
 }
 
 //-- función para pintar el proyectil
@@ -143,7 +176,7 @@ gui.start.onclick = () => {
 //-- Función de retrollamada del botón de disparo
 btnLanzar.onclick = () => {
     lanzar();
-    crono.start();
+    /*crono.start();*/
 }
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
@@ -153,6 +186,6 @@ btnIniciar.onclick = () => {
     dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
     
     //juego posición de inicio--> timer 0.0.0
-    crono.stop();
-    crono.reset();
+    /*crono.stop();
+    crono.reset();*/
 }
