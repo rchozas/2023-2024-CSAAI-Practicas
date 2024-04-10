@@ -58,11 +58,15 @@ dibujarO(xo,yo); // Pintar el objetivo
 //-- Velocidad del proyectil
 let velp = 2;
 
-const sonidoProyectil = new Audio('explosion.mp3');
+//-- Sonidos del juego
+const sonidoProyectil = new Audio('explosion.mp3'); /*Sonido del proyectil*/
+const sonidoacierto = new Audio('ganar.mp3'); /*Sonido acierto*/
+const sonidogameover = new Audio('gameover.mp3'); /*Sonido Game Over*/
+
 
 function lanzar() {
-    sonidoProyectil.play();
-    
+    sonidoProyectil.play(); /* reproducir sonido del proyectil*/
+
     const angle = parseFloat(range_disp.innerHTML); // Ángulo en grados
     const velocidad = parseFloat(range_velocidad.value); // Velocidad en unidades por segundo
     
@@ -73,8 +77,8 @@ function lanzar() {
     // Tiempo
     let t = 0;
 
-    // Física
-    const g = 9.8; // Aceleración debido a la gravedad (m/s^2)
+    // Aceleración debido a la gravedad (m/s^2)
+    const g = 9.8; 
 
     // Animación
     function animar() {
@@ -99,14 +103,16 @@ function lanzar() {
         if (distanciaAlObjetivo <= 45) { // Radio del objetivo
             // El proyectil ha alcanzado el objetivo
             alert("¡Objetivo alcanzado!");
+            sonidoacierto.play(); /*Reproducir sonido acierto */
            
             crono.stop();
             finDeJuego(); // Mostrar mensaje de fin de juego
             return;
         } else if (xp >= canvas.width) { // Si el proyectil llega al final del canvas
             // El proyectil no alcanzó el objetivo
+                        
             alert("¡MALA PUNTERIA!");
-            
+            sonidogameover.play(); /*Reproducir sonido FALLO*/
             
             crono.stop();
             finDeJuego(); // Mostrar mensaje de fin de juego
