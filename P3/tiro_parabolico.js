@@ -2,7 +2,7 @@
 //-- Obtención del canvas y de los elementos HTML a usar
 const canvas = document.getElementById("ctiro");
 
-const display = document.getElementById("display");
+/*const display = document.getElementById("display");*/
 const range = document.getElementById("range");
 const range_disp = document.getElementById("range_disp");
 const display_disp = document.getElementById("display_disp");
@@ -10,6 +10,14 @@ const display_disp = document.getElementById("display_disp");
 const range_velocidad = document.getElementById("range_velocidad");
 const range_vel2 = document.getElementById("range_vel2");
 const display_veloc = document.getElementById("display_veloc");
+
+
+const gui = {
+    display : document.getElementById("display"),
+    start : document.getElementById("start"),
+    stop : document.getElementById("stop"),
+    reset : document.getElementById("reset"),
+};
 
 
 
@@ -84,13 +92,20 @@ function lanzar() {
 
         // Comprobar si el proyectil ha alcanzado el objetivo
         const distanciaAlObjetivo = Math.sqrt((xp - xo) ** 2 + (yp - yo) ** 2);
-        if (distanciaAlObjetivo <= 25) { // Radio del objetivo
+        if (distanciaAlObjetivo <= 45) { // Radio del objetivo
             // El proyectil ha alcanzado el objetivo
             alert("¡Objetivo alcanzado!");
+           
+            crono.stop();
+            finDeJuego(); // Mostrar mensaje de fin de juego
             return;
         } else if (xp >= canvas.width) { // Si el proyectil llega al final del canvas
             // El proyectil no alcanzó el objetivo
-            alert("¡MALA PUNTERIA!Sigue intentándolo");
+            alert("¡MALA PUNTERIA!");
+            
+            
+            crono.stop();
+            finDeJuego(); // Mostrar mensaje de fin de juego
             return;
         } else {
             // Si no ha alcanzado el objetivo ni llegado al final del canvas, continuar animando
@@ -101,7 +116,13 @@ function lanzar() {
     // Iniciar la animación
     animar();
 }
-
+function finDeJuego() {
+    // Obtener el elemento del mensaje de fin de juego
+    const mensajeFinDeJuego = document.getElementById("fin");
+    // Mostrar el mensaje de fin de juego al terminar juego
+    mensajeFinDeJuego.style.display = "block";
+    
+}
 //-- función para pintar el proyectil
 function dibujarP(x,y,lx,ly,color) {
 
@@ -163,20 +184,20 @@ range_velocidad.onchange = () => {
 
 
 
-//-lanzar();
+                    //-lanzar();
 
 //-- Definir un objeto cronómetro
-/*const crono = new Crono(gui.display);
+const crono = new Crono(gui.display);
 
-//-- Arranque del cronometro
-gui.start.onclick = () => {
-    console.log("Start!!");
-    crono.start();
-}*/
+                    /*//-- Arranque del cronometro
+                    gui.start.onclick = () => {
+                        console.log("Start!!");
+                        crono.start();
+                    }*/
 //-- Función de retrollamada del botón de disparo
 btnLanzar.onclick = () => {
     lanzar();
-    /*crono.start();*/
+    crono.start();
 }
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
@@ -186,6 +207,6 @@ btnIniciar.onclick = () => {
     dibujarP(xop, yop, 50, 50, "green"); // Pintar el proyectil
     
     //juego posición de inicio--> timer 0.0.0
-    /*crono.stop();
-    crono.reset();*/
+    crono.stop();
+    crono.reset();
 }

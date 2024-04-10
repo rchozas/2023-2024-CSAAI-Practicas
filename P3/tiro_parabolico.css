@@ -26,6 +26,16 @@ h1 {
     text-shadow: 5px 5px 5px white; /* Sombras */
     border-radius: 10px;
 }
+#fin{
+    background-color: rgba(18, 19, 19, 0.8);
+    padding: 5px;
+    border: 2px solid;
+    border-color: yellowgreen;
+    color: bisque;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 600px) {
     .columna {
