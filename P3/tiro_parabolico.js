@@ -58,7 +58,11 @@ dibujarO(xo,yo); // Pintar el objetivo
 //-- Velocidad del proyectil
 let velp = 2;
 
+const sonidoProyectil = new Audio('explosion.mp3');
+
 function lanzar() {
+    sonidoProyectil.play();
+    
     const angle = parseFloat(range_disp.innerHTML); // Ángulo en grados
     const velocidad = parseFloat(range_velocidad.value); // Velocidad en unidades por segundo
     
