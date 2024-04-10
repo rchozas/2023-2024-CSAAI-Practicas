@@ -13,16 +13,15 @@ Estilos para el campo de tiro
     /*background-color: lightblue;*/
     background: url(campo6.jpg);
     border-style: solid;
-    border-width: 1px;
+    border-width: 5px;
     border-color: black;
-    border-radius: 5px;
+    border-radius: 10px;
   
 }
 h1 {
     font-family: 'Courier New', Courier, monospace, cursive;
     font-weight: bold;
     color: rgb(3, 138, 131);
-    
     text-shadow: 5px 5px 5px white; /* Sombras */
     border-radius: 10px;
 }
@@ -36,7 +35,6 @@ h1 {
     font-style: oblique;
     font-weight: bold;
 }
-
 @media screen and (max-width: 600px) {
     .columna {
       width: 100%;

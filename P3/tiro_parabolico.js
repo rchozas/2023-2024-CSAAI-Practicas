@@ -162,9 +162,9 @@ function dibujarO(x,y) {
     //-- Dibujar un circulo: coordenadas x,y del centro
     //-- Radio, Angulo inicial y angulo final
     ctx.arc(x, y, 25, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'blue';
+    ctx.strokeStyle = 'white';
     ctx.lineWidth = 2;
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = 'brown';
 
     //-- Dibujar el relleno
     ctx.fill()    
@@ -191,19 +191,11 @@ range_velocidad.oninput = () => {
 range_velocidad.onchange = () => {
     display_veloc.innerHTML = range_velocidad.value;
 }
-
-
-
-                    //-lanzar();
+                    
 
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
 
-                    /*//-- Arranque del cronometro
-                    gui.start.onclick = () => {
-                        console.log("Start!!");
-                        crono.start();
-                    }*/
 //-- Función de retrollamada del botón de disparo
 btnLanzar.onclick = () => {
     lanzar();
