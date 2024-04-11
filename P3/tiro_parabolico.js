@@ -177,20 +177,20 @@ function dibujarO(x,y) {
 range.oninput = () => {
     range_disp.innerHTML = range.value;
     console.log("Actualización del ángulo de disparo");
-}
+};
 range.onchange = () => {
     display_disp.innerHTML = range.value;
     console.log("Cambio del ángulo de disparo");
-}
+};
 //-- Deslizador velocidad de disparo
 range_velocidad.oninput = () => {
     range_vel2.innerHTML = range_velocidad.value;
     console.log("Actualización de la velocidad de disparo");
-}
+};
 range_velocidad.onchange = () => {
     display_veloc.innerHTML = range_velocidad.value;
     console.log("Cambio de la velocidad de disparo");
-}
+};
                     
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
@@ -200,7 +200,7 @@ btnLanzar.onclick = () => {
     lanzar();
     crono.start();
     console.log("Inicio del lanzamiento");
-}
+};
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
     //-- Reiniciar
@@ -212,4 +212,4 @@ btnIniciar.onclick = () => {
     crono.stop();
     crono.reset();
     //console.log("Reinicio del juego");
-}
+};
