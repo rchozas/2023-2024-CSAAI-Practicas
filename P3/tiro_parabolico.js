@@ -1,5 +1,5 @@
 //-- Elementos del DOM
-//-- Obtención del canvas y de los elementos HTML a usar
+//-- Obtención del canvas y de los elementos a usar
 const canvas = document.getElementById("ctiro");
 
 /*const display = document.getElementById("display");*/
@@ -19,10 +19,9 @@ const gui = {
     reset : document.getElementById("reset"),
 };
 
-
-
 //-- Acceder al botón de disparo
 const btnLanzar = document.getElementById("btnLanzar");
+
 //-- Acceder al botón de inicio
 const btnIniciar = document.getElementById("btnIniciar");
 
@@ -32,7 +31,7 @@ const ctx = canvas.getContext("2d");
 //-- Definir dimensiones del canvas
 canvas.width = 800;
 canvas.height = 400;
-//-- Declaración de variables y objetos
+
 //-- Coordenadas iniciales del proyectil (sp esquina inf izq)
 let xop = 5;
 let yop = 345;
@@ -55,18 +54,18 @@ dibujarP(xop, yop, 50, 50, "grey"); // Pintar el proyectil
 
 //-- Dibujar el objetivo
 dibujarO(xo,yo); // Pintar el objetivo
+
 //-- Velocidad del proyectil
-let velp = 2;
+//let velp = 2;
 
 //-- Sonidos del juego
 const sonidoProyectil = new Audio('explosion.mp3'); /*Sonido del proyectil*/
 const sonidoacierto = new Audio('ganar.mp3'); /*Sonido acierto*/
 const sonidogameover = new Audio('gameover.mp3'); /*Sonido Game Over*/
 
-
 function lanzar() {
     sonidoProyectil.play(); /* reproducir sonido del proyectil*/
-
+    
     const angle = parseFloat(range_disp.innerHTML); // Ángulo en grados
     const velocidad = parseFloat(range_velocidad.value); // Velocidad en unidades por segundo
     
@@ -77,7 +76,7 @@ function lanzar() {
     // Tiempo
     let t = 0;
 
-    // Aceleración debido a la gravedad (m/s^2)
+    // Gravedad (m/s^2)
     const g = 9.8; 
 
     // Animación
@@ -101,19 +100,16 @@ function lanzar() {
         // Comprobar si el proyectil ha alcanzado el objetivo
         const distanciaAlObjetivo = Math.sqrt((xp - xo) ** 2 + (yp - yo) ** 2);
         if (distanciaAlObjetivo <= 45) { // Radio del objetivo
-            // El proyectil ha alcanzado el objetivo
-            alert("¡Objetivo alcanzado!");
+            alert("¡Objetivo alcanzado!"); // El proyectil ha alcanzado el objetivo
             sonidoacierto.play(); /*Reproducir sonido acierto */
-           
+            console.log("¡Objetivo alcanzado! --> Acierto");
             crono.stop();
             finDeJuego(); // Mostrar mensaje de fin de juego
             return;
         } else if (xp >= canvas.width) { // Si el proyectil llega al final del canvas
-            // El proyectil no alcanzó el objetivo
-                        
-            alert("¡MALA PUNTERIA!");
+            alert("¡MALA PUNTERIA!"); // El proyectil no alcanzó el objetivo
             sonidogameover.play(); /*Reproducir sonido FALLO*/
-            
+            console.log("¡Objetivo NO alcanzado! --> FALLO");
             crono.stop();
             finDeJuego(); // Mostrar mensaje de fin de juego
             return;
@@ -131,6 +127,7 @@ function finDeJuego() {
     const mensajeFinDeJuego = document.getElementById("fin");
     // Mostrar el mensaje de fin de juego al terminar juego
     mensajeFinDeJuego.style.display = "block";
+    console.log("Mensaje de fin de juego --> ¿Acierto o Fallo? (diferente sonido)");
     
 }
 //-- función para pintar el proyectil
@@ -152,6 +149,7 @@ function dibujarP(x,y,lx,ly,color) {
     ctx.stroke();
 
     ctx.closePath();
+    //console.log("Dibujo del proyectil OK!");
 }
 //-- función para pintar el objetivo
 function dibujarO(x,y) {
@@ -167,32 +165,33 @@ function dibujarO(x,y) {
     ctx.fillStyle = 'brown';
 
     //-- Dibujar el relleno
-    ctx.fill()    
+    ctx.fill();    
 
     //-- Dibujar el trazo
     ctx.stroke();
-
     ctx.closePath();
+    //console.log("Dibujo de objetivo OK!!");
+
 }
-
-
-
 //-- Deslizador ángulo de disparo
 range.oninput = () => {
     range_disp.innerHTML = range.value;
+    console.log("Actualización del ángulo de disparo");
 }
 range.onchange = () => {
     display_disp.innerHTML = range.value;
+    console.log("Cambio del ángulo de disparo");
 }
 //-- Deslizador velocidad de disparo
 range_velocidad.oninput = () => {
     range_vel2.innerHTML = range_velocidad.value;
+    console.log("Actualización de la velocidad de disparo");
 }
 range_velocidad.onchange = () => {
     display_veloc.innerHTML = range_velocidad.value;
+    console.log("Cambio de la velocidad de disparo");
 }
                     
-
 //-- Definir un objeto cronómetro
 const crono = new Crono(gui.display);
 
@@ -200,6 +199,7 @@ const crono = new Crono(gui.display);
 btnLanzar.onclick = () => {
     lanzar();
     crono.start();
+    console.log("Inicio del lanzamiento");
 }
 //-- Función de retrollamada del botón iniciar
 btnIniciar.onclick = () => {
@@ -211,4 +211,5 @@ btnIniciar.onclick = () => {
     //juego posición de inicio--> timer 0.0.0
     crono.stop();
     crono.reset();
+    //console.log("Reinicio del juego");
 }
