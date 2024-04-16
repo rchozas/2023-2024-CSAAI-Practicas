@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body{
+    background-color: aquamarine;
+  }
 @font-face {
     font-family: Montserrat;
     src: url(./Montserrat-Regular.ttf);
@@ -128,4 +135,25 @@ button {
 
 .highlight {
     color: #6f00fc;
+}
+
+.iresponsive {
+    padding: 0 6px;
+    float:left;
+    width: 50%;
+    border-radius: 80%;
+    overflow: hidden;
+  }
+
+/* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
+/* Así conseguimos que el contenido se vea bien en dispositvos móviles */
+
+@media screen and (max-width: 600px) {
+    /*.columna {
+      width: 100%;
+    }*/
+
+    .iresponsive {
+        width: 100%;
+    }
 }
