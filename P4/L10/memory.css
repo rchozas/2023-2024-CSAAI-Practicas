@@ -6,6 +6,9 @@
 /* Y así podremos hacer referencia al font-family Montserrat más adelante
 font-family: Montserrat;
 */
+h1{
+    text-align: center;
+}
 .game {
     position: absolute;
     top: 50%;
