@@ -3,8 +3,10 @@ const selectors = {
     tablero: document.querySelector('.tablero'),
     movimientos: document.querySelector('.movimientos'),
     timer: document.querySelector('.timer'),
-    comenzar: document.querySelector('button'),
-    win: document.querySelector('.win')
+    comenzar: document.querySelector('.comenzar'),
+    reiniciar: document.querySelector('.reiniciar'),
+    win: document.querySelector('.win'),
+    dimensiones: document.querySelector('#dimensiones')
 }
 
 const state = {
@@ -24,7 +26,7 @@ const generateGame = () => {
     }
 
     //-- Creamos un array con los emojis que vamos a utilizar en nuestro juego
-    const emojis = ['🥔', '🍒', '🥑', '🌽', '🥕', '🍇', '🍉', '🍌', '🥭', '🍍']
+    const emojis = ['🥔','🫐', '🍒', '🥑','🫒', '🌽', '🥕', '🍇', '🍉','🍈', '🍌', '🥭', '🍍', '🍎', '🍐', '🍊', '🍓', '🥥']
     
     //-- Elegimos un subconjunto de emojis al azar, así cada vez que comienza el juego
     // es diferente.
@@ -224,5 +226,11 @@ const flipBackCards = () => {
             clearInterval(state.loop)
         }, 1000)
     }
+    selectors.reiniciar.onclick = () => {
+        location.reload();
+        console.log("Reiniciando...!");
+
+    }
+    var dimensions = selectors.tablero.getAttribute('grid-dimension');
 
     
