@@ -7,6 +7,8 @@
     background: url(fondo2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    color: whitesmoke;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
   }
 @font-face {
     font-family: Montserrat;
@@ -22,7 +24,7 @@ h1 {
 }
 .comenzar{
     background-color: chartreuse;
-    margin-right: 20px;
+    margin-right: 10px;
     border-radius: 10px;
     font-weight: bold;
     transition: background-color 0.3s;
@@ -79,6 +81,7 @@ button {
 .display {
     color: #fafbff;
     font-size: 14pt;
+    text-align: center;
 }
 
 .grid-container {
