@@ -232,5 +232,3 @@ const flipBackCards = () => {
 
     }
     var dimensions = selectors.tablero.getAttribute('grid-dimension');
-
-    
