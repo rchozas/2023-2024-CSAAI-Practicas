@@ -173,28 +173,11 @@ button {
     font-weight: bold;
 }
 
-.iresponsive {
-    padding: 0 6px;
-    float:left;
-    width: 50%;
-    border-radius: 80%;
-    overflow: hidden;
-  }
 
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositivos móviles */
 
-/*
-@media screen and (max-width: 600px) {
-    .responsive {
-        width: auto;
-        height: auto;
-    }
-  }
-  
-  .responsive {
-    position: relative;
-  }*/
+
   @media screen and (max-width: 600px) {
     .game {
         width: 90%; /* Ajusta el ancho del contenedor principal */

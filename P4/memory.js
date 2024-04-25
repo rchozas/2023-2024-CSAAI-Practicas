@@ -147,13 +147,17 @@ const startGame = () => {
         selectors.timer.innerText = `tiempo: ${state.totalTime} sec`
     }, 1000)
 }
-
+const sonidocarta = new Audio('carta.mp3');
+const sonidofin = new Audio('fin.mp3');
 const flipCard = card => {
     // Sumamos uno al contador de cartas giradas
     state.flippedCards++
     // Sumamos uno al contador general de movimientos
     state.totalFlips++
 
+    sonidocarta.play();
+
+    
     // Si el juego no estaba iniciado, lo iniciamos
     if (!state.gameStarted) {
         startGame()
@@ -203,6 +207,7 @@ const flipCard = card => {
             `
             // Paramos el loop porque el juego ha terminado
             clearInterval(state.loop)
+            sonidofin.play();
         }, 1000)
     }
 }
