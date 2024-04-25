@@ -171,7 +171,8 @@ button {
 }
 
 .highlight {
-    color: #6f00fc;
+    color: #50fc00;
+    font-weight: bold;
 }
 
 .iresponsive {
@@ -183,17 +184,9 @@ button {
   }
 
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
-/* Así conseguimos que el contenido se vea bien en dispositvos móviles */
+/* Así conseguimos que el contenido se vea bien en dispositivos móviles */
 
-/*@media screen and (max-width: 600px) {
-    /*.columna {
-      width: 100%;
-    }
 
-    .iresponsive {
-        width: 100%;
-    }
-}*/
 @media screen and (max-width: 600px) {
     .responsive {
         width: auto;
