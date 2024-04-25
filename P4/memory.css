@@ -180,7 +180,7 @@ button {
 
   @media screen and (max-width: 600px) {
     .game {
-        width: 90%; /* Ajusta el ancho del contenedor principal */
+        width: 50%; /* Ajusta el ancho del contenedor principal */
         margin: 0 auto; /* Centra el contenedor en la pantalla */
     }
 
