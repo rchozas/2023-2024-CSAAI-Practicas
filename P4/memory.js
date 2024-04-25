@@ -19,11 +19,11 @@ const state = {
 
 const generateGame = () => {
     const dimensions = parseInt(selectors.dimensiones.value);
-    console.log("introducciendo dimensiones...")
+    console.log("introducciendo dimensiones...");
     //-- Nos aseguramos de que el número de dimensiones es par
     // y si es impar lanzamos un error
     if (dimensions % 2 !== 0) {
-        throw new Error("Las dimensiones del tablero deben ser un número par.")
+        throw new Error("Las dimensiones del tablero deben ser un número par.");
     }
 
     //-- Creamos un array con los emojis que vamos a utilizar en nuestro juego
@@ -33,11 +33,11 @@ const generateGame = () => {
     // es diferente.
     // Es decir, si tenemos un array con 10 emojis, vamos a elegir el cuadrado de las
     // dimensiones entre dos, para asegurarnos de que cubrimos todas las cartas
-    const picks = pickRandom(emojis, (dimensions * dimensions) / 2) 
+    const picks = pickRandom(emojis, (dimensions * dimensions) / 2); 
     
     //-- Después descolocamos las posiciones para asegurarnos de que las parejas de cartas
     // están desordenadas.
-    const items = shuffle([...picks, ...picks])
+    const items = shuffle([...picks, ...picks]);
     
     //-- Vamos a utilizar una función de mapeo para generar 
     //  todas las cartas en función de las dimensiones
@@ -53,7 +53,7 @@ const generateGame = () => {
     `
     //-- Vamos a utilizar un parser para transformar la cadena que hemos generado
     // en código html.
-    const parser = new DOMParser().parseFromString(cards, 'text/html')
+    const parser = new DOMParser().parseFromString(cards, 'text/html');
 
     // Reemplazamos el tablero existente con el nuevo tablero generado
     const newTablero = parser.querySelector('.tablero');
@@ -112,29 +112,29 @@ const attachEventListeners = () => {
     document.addEventListener('click', event => {
         // Del evento disparado vamos a obtener alguna información útil
         // Como el elemento que ha disparado el evento y el contenedor que lo contiene
-        const eventTarget = event.target
-        const eventParent = eventTarget.parentElement
+        const eventTarget = event.target;
+        const eventParent = eventTarget.parentElement;
 
         // Cuando se trata de una carta que no está girada, le damos la vuelta para mostrarla
         if (eventTarget.className.includes('card') && !eventParent.className.includes('flipped')) {
-            flipCard(eventParent)
+            flipCard(eventParent);
         // Pero si lo que ha pasado es un clic en el botón de comenzar lo que hacemos es
         // empezar el juego
         } else if (eventTarget.nodeName === 'BUTTON' && !eventTarget.className.includes('disabled')) {
-            startGame()
+            startGame();
         }
     })
 }
 // Generamos el juego
-generateGame()
+generateGame();
 // Asignamos las funciones de callback para determinados eventos
-attachEventListeners()
+attachEventListeners();
 
 const startGame = () => {
     // Iniciamos el estado de juego
-    state.gameStarted = true
+    state.gameStarted = true;
     // Desactivamos el botón de comenzar
-    selectors.comenzar.classList.add('disabled')
+    selectors.comenzar.classList.add('disabled');
     // Deshabilitamos el elemento select de dimensiones
     selectors.dimensiones.disabled = true;
 
@@ -160,7 +160,7 @@ const flipCard = card => {
     
     // Si el juego no estaba iniciado, lo iniciamos
     if (!state.gameStarted) {
-        startGame()
+        startGame();
     }
 
     // Si no tenemos la pareja de cartas girada
@@ -187,7 +187,7 @@ const flipCard = card => {
         // o las deja giradas porque ha sido un match
         // y para eso llamamos a la función flipBackCards()
         setTimeout(() => {
-            flipBackCards()
+            flipBackCards();
         }, 1000)
     }
     // Antes de terminar, comprobamos si quedan cartas por girar
@@ -206,7 +206,7 @@ const flipCard = card => {
                 </span>
             `
             // Paramos el loop porque el juego ha terminado
-            clearInterval(state.loop)
+            clearInterval(state.loop);
             sonidofin.play();
         }, 1000)
     }
@@ -216,10 +216,10 @@ const flipBackCards = () => {
     // Seleccionamos las cartas que no han sido emparejadas
     // y quitamos la clase de giro
     document.querySelectorAll('.card:not(.matched)').forEach(card => {
-        card.classList.remove('flipped')
+        card.classList.remove('flipped');
     })
     // Ponemos el contado de parejas de cartas a cero
-    state.flippedCards = 0
+    state.flippedCards = 0;
 }
 
 selectors.reiniciar.onclick = () => {
