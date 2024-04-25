@@ -184,7 +184,7 @@ button {
 /* Responsive layout - cuando el ancho de pantalla es menor a 600px, muestra las columnas apiladas. */
 /* Así conseguimos que el contenido se vea bien en dispositivos móviles */
 
-
+/*
 @media screen and (max-width: 600px) {
     .responsive {
         width: auto;
@@ -194,4 +194,14 @@ button {
   
   .responsive {
     position: relative;
-  }
+  }*/
+  @media screen and (max-width: 600px) {
+    .game {
+        width: 90%; /* Ajusta el ancho del contenedor principal */
+        margin: 0 auto; /* Centra el contenedor en la pantalla */
+    }
+
+    .tablero {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ajusta el número de columnas en función del ancho de la pantalla */
+    }
+}
