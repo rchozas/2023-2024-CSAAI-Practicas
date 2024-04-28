@@ -15,6 +15,13 @@ const pipeRandomWeight = 100; // No hay retardo entre nodos 100
 // Localizando elementos en el DOM
 const btnCNet = document.getElementById("btnCNet");
 const btnMinPath = document.getElementById("btnMinPath");
+function updateDisplay(numNodos, tiempoTotal) {
+  const nodosDisplay = document.querySelector('.nodos');
+  const tiempoDisplay = document.querySelector('.timer');
+
+  nodosDisplay.textContent = `${numNodos} Nodos`;
+  tiempoDisplay.textContent = `Tiempo Total: ${Math.floor(tiempoTotal)} sec`;
+}
 
 
 // Clase para representar un nodo en el grafo
@@ -224,7 +231,7 @@ function drawNet(nnodes) {
   nnodes.forEach(nodo => {
     ctx.beginPath();
     ctx.arc(nodo.x, nodo.y, nodeRadius, 0, 2 * Math.PI);
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = 'gray';
     ctx.fill();
     ctx.stroke();
     ctx.font = '12px Arial';
@@ -247,8 +254,20 @@ btnCNet.onclick = () => {
   // Dibujar la red que hemos generado
   drawNet(redAleatoria);
 
+  // Actualizar el display con el número de nodos
+  updateDisplay(numNodos, 0); // El tiempo total se establece como 0 al generar la red
+  // Mostrar mensaje en el display
+  const mensajeDisplay = document.querySelector('.mensaje');
+  mensajeDisplay.textContent = "Red generada correctamente";
+
 }
 btnMinPath.onclick = () => {
+  // Verificar si la red ha sido generada previamente
+  if (!redAleatoria) {
+    const mensajeDisplay = document.querySelector('.mensaje');
+    mensajeDisplay.textContent = "⚠️Red NO generada⚠️ Debe generar primero la RED";
+    return; // Salir de la función si la red no está generada
+  }
 
   // Supongamos que tienes una red de nodos llamada redAleatoria y tienes nodos origen y destino
   nodoOrigen = redAleatoria[0]; // Nodo de origen
@@ -258,4 +277,9 @@ btnMinPath.onclick = () => {
   rutaMinimaConRetardos = dijkstraConRetardos(redAleatoria, nodoOrigen, nodoDestino);
   console.log("Ruta mínima con retrasos:", rutaMinimaConRetardos);
 
+  // Calcular el tiempo total
+  const tiempoTotal = rutaMinimaConRetardos.reduce((total, { delay }) => total + delay, 0) ; // Convertir a segundos
+
+  // Actualizar el display con el tiempo total
+  updateDisplay(numNodos, tiempoTotal);
 }
