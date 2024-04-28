@@ -248,8 +248,11 @@ function drawNet(nnodes) {
         ctx.fillText(nodoDesc, nodo.x, nodo.y + 5);
     });
 }
-
-  
+// Función para restablecer el canvas al estado inicial
+function resetCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
+  drawNet(redAleatoria); // Volver a dibujar la red sin resaltar ningún nodo en verde
+}
   
 // Función de calback para generar la red de manera aleatoria
 btnCNet.onclick = () => {
@@ -269,34 +272,44 @@ btnCNet.onclick = () => {
   // Mostrar mensaje en el display
   const mensajeDisplay = document.querySelector('.mensaje');
   mensajeDisplay.textContent = "Red generada correctamente";
-  
+  // Desactivar el botón de "Generar Red"
+  btnCNet.disabled = true;
 
 }
+// Función para recargar la página cuando se hace clic en el botón "Recargar Página"
+document.getElementById("reloadPage").addEventListener("click", () => {
+  location.reload();
+});
+
 const sonidoalerta = new Audio('adv.mp3');
 btnMinPath.onclick = () => {
-    // Verificar si la red ha sido generada previamente
-    if (!redAleatoria) {
-      const mensajeDisplay = document.querySelector('.mensaje');
-      mensajeDisplay.textContent = "⚠️Red NO generada⚠️ Debe generar primero la RED";
-      sonidoalerta.play();
-      return; // Salir de la función si la red no está generada
-    }
-  
-    // Supongamos que tienes una red de nodos llamada redAleatoria y tienes nodos origen y destino
-    nodoOrigen = redAleatoria[0]; // Nodo de origen
-    nodoDestino = redAleatoria[numNodos - 1]; // Nodo de destino
-  
-    // Calcular la ruta mínima entre el nodo origen y el nodo destino utilizando Dijkstra con retrasos
-    rutaMinimaConRetardos = dijkstraConRetardos(redAleatoria, nodoOrigen, nodoDestino);
-    console.log("Ruta mínima con retrasos:", rutaMinimaConRetardos);
-  
-    // Calcular el tiempo total
-    const tiempoTotal = rutaMinimaConRetardos.reduce((total, { delay }) => total + delay, 0) ; // Convertir a segundos
-  
-    // Actualizar el display con el tiempo total
-    updateDisplay(numNodos, tiempoTotal);
-    // Volver a dibujar la red para reflejar la ruta mínima
-    drawNet(redAleatoria);
-    
+  // Verificar si la red ha sido generada previamente
+  if (!redAleatoria) {
+    const mensajeDisplay = document.querySelector('.mensaje');
+    mensajeDisplay.textContent = "⚠️Red NO generada⚠️ Debe generar primero la RED";
+    sonidoalerta.play();
+    return; // Salir de la función si la red no está generada
   }
+  
+  // Supongamos que tienes una red de nodos llamada redAleatoria y tienes nodos origen y destino
+  nodoOrigen = redAleatoria[0]; // Nodo de origen
+  nodoDestino = redAleatoria[numNodos - 1]; // Nodo de destino
+  
+  // Calcular la ruta mínima entre el nodo origen y el nodo destino utilizando Dijkstra con retrasos
+  rutaMinimaConRetardos = dijkstraConRetardos(redAleatoria, nodoOrigen, nodoDestino);
+  console.log("Ruta mínima con retrasos:", rutaMinimaConRetardos);
+  
+  // Calcular el tiempo total
+  const tiempoTotal = rutaMinimaConRetardos.reduce((total, { delay }) => total + delay, 0) ; // Convertir a segundos
+  
+  // Actualizar el display con el tiempo total
+  updateDisplay(numNodos, tiempoTotal);
+  // Volver a dibujar la red para reflejar la ruta mínima
+  drawNet(redAleatoria);
+    
+}
+
+// Evento para restablecer el canvas
+canvas.addEventListener('click', resetCanvas);
+
   
