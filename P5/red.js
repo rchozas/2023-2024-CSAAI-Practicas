@@ -204,43 +204,53 @@ function randomNumber(min, max) {
 }
 
 
+function nodoIsInMinPath(nodoId) {
+    if (!rutaMinimaConRetardos) return false; // Si la ruta mínima no está definida, el nodo no está en la ruta
+    return rutaMinimaConRetardos.some(nodo => nodo.id === nodoId);
+}
 // Dibujar la red en el canvas
 function drawNet(nnodes) {
-  // Dibujamos las conexiones entre nodos
-  nnodes.forEach(nodo => {
-    nodo.conexiones.forEach(({ nodo: conexion, peso }) => {
-      ctx.beginPath();
-      ctx.moveTo(nodo.x, nodo.y);
-      ctx.lineTo(conexion.x, conexion.y);
-      ctx.stroke();
+    // Dibujamos las conexiones entre nodos
+    nnodes.forEach(nodo => {
+        nodo.conexiones.forEach(({ nodo: conexion, peso }) => {
+            ctx.beginPath();
+            ctx.moveTo(nodo.x, nodo.y);
+            ctx.lineTo(conexion.x, conexion.y);
+            ctx.lineWidth = 3; // Grosor de las líneas
+            ctx.strokeStyle = 'greenyellow';
+            ctx.stroke();
 
-      ctx.font = '12px Arial';
-      ctx.fillStyle = 'black';
-      ctx.textAlign = 'center';
-      pw = "N" + nodo.id + " pw " + peso;
-      const midX = Math.floor((nodo.x + conexion.x)/2);
-      const midY = Math.floor((nodo.y + conexion.y)/2);
-      ctx.fillText(pw, midX, midY);  
-
+            ctx.font = 'bold 16px Arial';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            pw = "N" + nodo.id + " pw " + peso;
+            const midX = Math.floor((nodo.x + conexion.x) / 2);
+            const midY = Math.floor((nodo.y + conexion.y) / 2);
+            ctx.fillText(pw, midX, midY);
+        });
     });
-  });
 
-  let nodoDesc; // Descripción del nodo
-
-  // Dibujamos los nodos
-  nnodes.forEach(nodo => {
-    ctx.beginPath();
-    ctx.arc(nodo.x, nodo.y, nodeRadius, 0, 2 * Math.PI);
-    ctx.fillStyle = 'gray';
-    ctx.fill();
-    ctx.stroke();
-    ctx.font = '12px Arial';
-    ctx.fillStyle = 'white';
-    ctx.textAlign = 'center';
-    nodoDesc = "N" + nodo.id + " delay " + Math.floor(nodo.delay);
-    ctx.fillText(nodoDesc, nodo.x, nodo.y + 5);
-  });
+    // Dibujamos los nodos
+    nnodes.forEach(nodo => {
+        ctx.beginPath();
+        ctx.arc(nodo.x, nodo.y, nodeRadius, 0, 2 * Math.PI);
+        if (nodoIsInMinPath(nodo.id)) {
+            ctx.fillStyle = 'rgb(118, 206, 59)'; // Si el nodo está en la ruta mínima, dibujarlo en verde
+        } else {
+            ctx.fillStyle = 'rgb(231, 224, 224)'; // Si no, dibujarlo en gris
+        }
+        ctx.fill();
+        ctx.stroke();
+        ctx.font = '12px Arial';
+        ctx.fillStyle = 'black';
+        ctx.textAlign = 'center';
+        nodoDesc = "N" + nodo.id + " Delay " + Math.floor(nodo.delay);
+        ctx.fillText(nodoDesc, nodo.x, nodo.y + 5);
+    });
 }
+
+  
+  
 // Función de calback para generar la red de manera aleatoria
 btnCNet.onclick = () => {
 
@@ -259,27 +269,34 @@ btnCNet.onclick = () => {
   // Mostrar mensaje en el display
   const mensajeDisplay = document.querySelector('.mensaje');
   mensajeDisplay.textContent = "Red generada correctamente";
+  
 
 }
+const sonidoalerta = new Audio('adv.mp3');
 btnMinPath.onclick = () => {
-  // Verificar si la red ha sido generada previamente
-  if (!redAleatoria) {
-    const mensajeDisplay = document.querySelector('.mensaje');
-    mensajeDisplay.textContent = "⚠️Red NO generada⚠️ Debe generar primero la RED";
-    return; // Salir de la función si la red no está generada
+    // Verificar si la red ha sido generada previamente
+    if (!redAleatoria) {
+      const mensajeDisplay = document.querySelector('.mensaje');
+      mensajeDisplay.textContent = "⚠️Red NO generada⚠️ Debe generar primero la RED";
+      sonidoalerta.play();
+      return; // Salir de la función si la red no está generada
+    }
+  
+    // Supongamos que tienes una red de nodos llamada redAleatoria y tienes nodos origen y destino
+    nodoOrigen = redAleatoria[0]; // Nodo de origen
+    nodoDestino = redAleatoria[numNodos - 1]; // Nodo de destino
+  
+    // Calcular la ruta mínima entre el nodo origen y el nodo destino utilizando Dijkstra con retrasos
+    rutaMinimaConRetardos = dijkstraConRetardos(redAleatoria, nodoOrigen, nodoDestino);
+    console.log("Ruta mínima con retrasos:", rutaMinimaConRetardos);
+  
+    // Calcular el tiempo total
+    const tiempoTotal = rutaMinimaConRetardos.reduce((total, { delay }) => total + delay, 0) ; // Convertir a segundos
+  
+    // Actualizar el display con el tiempo total
+    updateDisplay(numNodos, tiempoTotal);
+    // Volver a dibujar la red para reflejar la ruta mínima
+    drawNet(redAleatoria);
+    
   }
-
-  // Supongamos que tienes una red de nodos llamada redAleatoria y tienes nodos origen y destino
-  nodoOrigen = redAleatoria[0]; // Nodo de origen
-  nodoDestino = redAleatoria[numNodos - 1]; // Nodo de destino
-
-  // Calcular la ruta mínima entre el nodo origen y el nodo destino utilizando Dijkstra con retrasos
-  rutaMinimaConRetardos = dijkstraConRetardos(redAleatoria, nodoOrigen, nodoDestino);
-  console.log("Ruta mínima con retrasos:", rutaMinimaConRetardos);
-
-  // Calcular el tiempo total
-  const tiempoTotal = rutaMinimaConRetardos.reduce((total, { delay }) => total + delay, 0) ; // Convertir a segundos
-
-  // Actualizar el display con el tiempo total
-  updateDisplay(numNodos, tiempoTotal);
-}
+  

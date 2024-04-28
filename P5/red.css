@@ -1,5 +1,9 @@
 canvas {
     border: 1px solid black;
+    background-image: url(red3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(118, 206, 59);
   }
   
   .controls {
@@ -11,10 +15,11 @@ canvas {
   button {
     background: #282A3A;
     color: #FFF;
-    border-radius: 2px;
+    border-radius: 15px;
     padding: 10px 20px;
     border: 0;
     cursor: pointer;
     font-family: Fredoka;
     font-size: 18pt;
+    box-shadow: 0 4px 8px rgba(101, 210, 238, 0.8);
   }
