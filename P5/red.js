@@ -18,7 +18,6 @@ const btnMinPath = document.getElementById("btnMinPath");
 function updateDisplay(numNodos, tiempoTotal) {
   const nodosDisplay = document.querySelector('.nodos');
   const tiempoDisplay = document.querySelector('.timer');
-
   nodosDisplay.textContent = `${numNodos} Nodos`;
   tiempoDisplay.textContent = `Tiempo Total: ${Math.floor(tiempoTotal)} sec`;
 }
@@ -108,12 +107,11 @@ class Nodo {
       pos += 1;
     }
   
-    return {pos:npos, id: cnode, distance: distn,}
+    return {pos:npos, id: cnode, distance: distn,};
   
   }
 
 }
-  
 // Función para generar una red aleatoria con nodos en diferentes estados de congestión
 function crearRedAleatoriaConCongestion(numNodos, numConexiones) {
   
@@ -203,7 +201,6 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-
 function nodoIsInMinPath(nodoId) {
     if (!rutaMinimaConRetardos) return false; // Si la ruta mínima no está definida, el nodo no está en la ruta
     return rutaMinimaConRetardos.some(nodo => nodo.id === nodoId);
@@ -217,11 +214,10 @@ function drawNet(nnodes) {
             ctx.moveTo(nodo.x, nodo.y);
             ctx.lineTo(conexion.x, conexion.y);
             ctx.lineWidth = 3; // Grosor de las líneas
-            ctx.strokeStyle = 'greenyellow';
+            ctx.strokeStyle = 'aqua';
             ctx.stroke();
-
             ctx.font = 'bold 16px Arial';
-            ctx.fillStyle = 'white';
+            ctx.fillStyle = 'yellow';
             ctx.textAlign = 'center';
             pw = "N" + nodo.id + " pw " + peso;
             const midX = Math.floor((nodo.x + conexion.x) / 2);
@@ -241,7 +237,7 @@ function drawNet(nnodes) {
         }
         ctx.fill();
         ctx.stroke();
-        ctx.font = '12px Arial';
+        ctx.font = 'bold 12px Arial';
         ctx.fillStyle = 'black';
         ctx.textAlign = 'center';
         nodoDesc = "N" + nodo.id + " Delay " + Math.floor(nodo.delay);
@@ -263,10 +259,8 @@ btnCNet.onclick = () => {
 
   // Limpiamos el canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
   // Dibujar la red que hemos generado
   drawNet(redAleatoria);
-
   // Actualizar el display con el número de nodos
   updateDisplay(numNodos, 0); // El tiempo total se establece como 0 al generar la red
   // Mostrar mensaje en el display
@@ -274,8 +268,8 @@ btnCNet.onclick = () => {
   mensajeDisplay.textContent = "Red generada correctamente";
   // Desactivar el botón de "Generar Red"
   btnCNet.disabled = true;
+};
 
-}
 // Función para recargar la página cuando se hace clic en el botón "Recargar Página"
 document.getElementById("reloadPage").addEventListener("click", () => {
   location.reload();
@@ -307,9 +301,7 @@ btnMinPath.onclick = () => {
   // Volver a dibujar la red para reflejar la ruta mínima
   drawNet(redAleatoria);
     
-}
+};
 
 // Evento para restablecer el canvas
-canvas.addEventListener('click', resetCanvas);
-
-  
+canvas.addEventListener('click', resetCanvas);  
