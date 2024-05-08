@@ -276,6 +276,7 @@ document.getElementById("reloadPage").addEventListener("click", () => {
 });
 
 const sonidoalerta = new Audio('adv.mp3');
+const sonidoRuta = new Audio('ruta.mp3');
 btnMinPath.onclick = () => {
   // Verificar si la red ha sido generada previamente
   if (!redAleatoria) {
@@ -300,6 +301,7 @@ btnMinPath.onclick = () => {
   updateDisplay(numNodos, tiempoTotal);
   // Volver a dibujar la red para reflejar la ruta mínima
   drawNet(redAleatoria);
+  sonidoRuta.play(); // Reproducir el sonido de la ruta
     
 };
 
