@@ -302,6 +302,8 @@ btnMinPath.onclick = () => {
   // Volver a dibujar la red para reflejar la ruta mínima
   drawNet(redAleatoria);
   sonidoRuta.play(); // Reproducir el sonido de la ruta
+  // Desactivar el botón de "Calcular ruta"
+  btnMinPath.disabled = true;
     
 };
 
